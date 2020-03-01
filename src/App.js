@@ -1,17 +1,44 @@
 import React from 'react'
-
 import './App.css'
 
-class App extends React.Component {
+const App = () => {
+  return <Counter></Counter>
+}
+
+class Counter extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      count: 0
+    }
+  }
+
+  handlePlusButton = () => {
+    this.setState({ count: this.state.count + 1 })
+  }
+
+  handleMinusButton = () => {
+    this.setState({ count: this.state.count - 1 })
+  }
   render () {
     return (
-      <React.Fragment>
-        <label>bar</label>
-        <input
-          type='text'
-          onChange={event => console.log(event.target.value)}
-        />
-      </React.Fragment>
+      <div>
+        <h1>count : {this.state.count}</h1>
+        <button
+          onClick={() => {
+            this.handlePlusButton()
+          }}
+        >
+          +
+        </button>
+        <button
+          onClick={() => {
+            this.handleMinusButton()
+          }}
+        >
+          -
+        </button>
+      </div>
     )
   }
 }
