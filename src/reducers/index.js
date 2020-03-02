@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux'
-import count from './count'
-import addword from './addword'
-import addtodo from './addtodo'
+import events from './events'
 
-export default combineReducers({ count,addword,addtodo });
+export default combineReducers({ events });

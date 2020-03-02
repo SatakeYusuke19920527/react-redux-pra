@@ -1,28 +1,10 @@
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
-export const ADDWORD = 'ADDWORD'
-export const ADDTODO = 'ADDTODO'
+import axios from 'axios'
+export const READ_EVENTS = 'READ_EVENTS'
 
-export const increment = () => {
-    return (
-        { type: INCREMENT }
-    );
-}
+const ROOT_URL = 'https://udemy-utils.herokuapp.com/api/v1'
+const QUERYSTRING = '?token=token123'
 
-export const decrement = () => {
-    return (
-        { type: DECREMENT }
-    );
-}
-
-export const addword = () => {
-    return (
-        {type:ADDWORD}
-    )
-}
-
-export const addtodo = () => {
-    return (
-        {type:ADDTODO}
-    )
+export const readEvents = () => async dispatch => {
+    const response = await axios.get(`${ROOT_URL}/events/${QUERYSTRING}`)
+    dispatch({ type: READ_EVENTS, response })
 }
